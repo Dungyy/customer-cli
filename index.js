@@ -5,9 +5,7 @@ const customer = require("./models/customer");
 mongoose.Promise = global.Promise;
 
 // Connect to DB
-const db = mongoose.connect("mongodb://localhost:27017/customercli", {
-  useMongoClient: true,
-});
+const db = mongoose.connect("mongodb://localhost:28015/").catch(() => console.error("Unable to connect to DB"));
 
 // Import Model
 const Customer = require("./models/customer");
@@ -35,7 +33,7 @@ const findCustomer = (name) => {
 
 
 // Export 
-modules.exports = {
+module.exports = {
     addCustomer,
     findCustomer
 }
